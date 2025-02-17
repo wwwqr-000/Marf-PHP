@@ -14,7 +14,7 @@ class Routes {
     public static function redir() {
         global $route;
 
-        $res = match ($route) {
+        match ($route) {
             "/" => Routes::showView("home"),
             "/test" => Routes::showView("test"),
             default => Routes::showView("notfound" . $route)

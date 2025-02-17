@@ -1,10 +1,9 @@
 <?php
-require_once("../viewRegister.php");
-require_once("../viewClass.php");
+require_once("viewClass.php");
 
 class Home extends ViewClass {
-    private $name = "home";
-    private $html = <<< HTML_CONTENT
+    private static $name = "home";
+    private static $html = <<< HTML_CONTENT
     <!DOCTYPE html>
     <html>
     <head>
@@ -15,11 +14,11 @@ class Home extends ViewClass {
     </html>
     HTML_CONTENT;
 
-    public function show() {
+    public static function show() {
         die(self::$html);
     }
 
-    public function getName() {
+    public static function getName() {
         return self::$name;
     }
     

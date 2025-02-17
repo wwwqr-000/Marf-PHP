@@ -1,4 +1,6 @@
 <?php
+require("viewRequire.php");
+
 class ViewRegister {
     public static $viewList = [];
 
@@ -8,8 +10,8 @@ class ViewRegister {
 
     public static function show($viewName) {
         foreach (ViewRegister::$viewList as $view) {
-            if ($view.getName() == $viewName) {
-                $view.show();
+            if ($view::getName() == $viewName) {
+                $view::show();
             }
         }
     }

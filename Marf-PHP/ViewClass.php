@@ -1,13 +1,13 @@
 <?php
 class ViewClass {
-    private $name;
-    private $html;
+    private static $name;
+    private static $html;
     
-    public function show() {
+    public static function show() {
         die(self::$html);
     }
 
-    public function getName() {
+    public static function getName() {
         return self::$name;
     }
 }

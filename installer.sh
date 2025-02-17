@@ -1,6 +1,11 @@
-br = $'\n'
+#!/bin/bash
+
+installList=("apache2" "zip" "snapd" "core" "certbot" "phpmyadmin" "mysql" "php-mbstring" "php-zip" "php-gd" "php-json" "php-curl")
 clear
-echo -e "Do you agree installing apache2 and overwriting configs and updating your system? (Y/n)${br}"
+for i in "${installList[@]}"; do
+    echo -e "$i"
+done
+echo -e "Do you agree executing the following apt-get commands? (Y/n)${br}"
 read agreeApache2
 if [ "$agreeApache2" != "" ] && [ "$agreeApache2" != "Y" ] && [ "$agreeApache2" != "y" ]; then
     clear
@@ -8,6 +13,8 @@ if [ "$agreeApache2" != "" ] && [ "$agreeApache2" != "Y" ] && [ "$agreeApache2" 
     exit 0
 fi
 apt-get update
-apt-get install apache2
-clear
-echo -e "Do you accept installing zip, snapd, core, certbot, phpmyadmin, mysql, php-mbstring, php-zip, php-gd, php-json and php-curl?"
+for i in "${installList[@]}"; do
+    apt-get install ${i}
+done
+ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
+systemctl restart apache2

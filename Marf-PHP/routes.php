@@ -19,8 +19,7 @@ class Routes {
 
         $res = match ($route) {
             "/" => ["allowed" => [["type" => "GET", "view" => "home", "middleware" => [MiddlewareRegister::check("isLocalIP")]]]],
-            "/test" => ["GET" => "test", "POST" => "test"],
-            default => ["allowed" => [["type" => "*"]]]
+            default => ["allowed" => [["type" => "*", "view" => "viewNotFound"]]]
         };
 
         Routes::routeHandler($res);

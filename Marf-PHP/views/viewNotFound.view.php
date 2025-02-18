@@ -1,20 +1,20 @@
 <?php
 require_once("../viewClass.php");
 
-class Home extends ViewClass {
-    private static $name = "home";
+class ViewNotFound extends ViewClass {
+    private static $name = "viewNotFound";
     private $html;
 
     public function __construct() {
-        $IP = $_SERVER["REMOTE_ADDR"];
 
         $this->html = <<< HTML_CONTENT
         <!DOCTYPE html>
         <html>
         <head>
-            <title>Home page ($IP)</title>
+            <title>Not found</title>
         </head>
         <body>
+            <h1>View Not Found</h1>
         </body>
         </html>
         HTML_CONTENT;
@@ -30,5 +30,5 @@ class Home extends ViewClass {
     
 }
 
-ViewRegister::register(new Home());
+ViewRegister::register(new ViewNotFound());
 ?>

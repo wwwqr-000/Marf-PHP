@@ -11,7 +11,7 @@ class ViewRegister {
     public static function show($viewName) {
         foreach (ViewRegister::$viewList as $view) {
             if ($view::getName() == $viewName) {
-                $view::show();
+                $view->show();
             }
         }
     }

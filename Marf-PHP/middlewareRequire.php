@@ -1,5 +1,6 @@
 <?php
 foreach (glob("../middleware/" . "*.mw.php") as $middleware) {
-    require_once("middleware/" . $middleware);
+    $f = basename($middleware);
+    require_once(__DIR__ . "/middleware/" . $f);
 }
 ?>

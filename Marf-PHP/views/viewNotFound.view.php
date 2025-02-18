@@ -1,5 +1,5 @@
 <?php
-require_once("../viewClass.php");
+require_once("../ViewClass.php");
 
 class ViewNotFound extends ViewClass {
     private static $name = "viewNotFound";

@@ -10,8 +10,8 @@ class ViewRegister {
 
     public static function show($viewName) {
         foreach (ViewRegister::$viewList as $view) {
-            if ($view::getName() == $viewName) {
-                header("Content-Type: " . ViewRegister::getMimeType($view::getFnex()));
+            if ($view->getName() == $viewName) {
+                header("Content-Type: " . ViewRegister::getMimeType($view->getFnex()));
                 $view->show();
             }
         }

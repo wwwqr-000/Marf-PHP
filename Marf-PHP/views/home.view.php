@@ -1,20 +1,30 @@
 <?php
 require_once("../ViewClass.php");
 
+function getProtocol() {
+    if (Client::isHttps()) {
+        return "https";
+    }
+    return "http";
+}
+
 class Home extends ViewClass {
-    private static $name = "home";
-    private static $fnex = "php";
+    private $name = "home";
+    private $fnex = "php";
     private $html;
 
     public function __construct() {
+        $ip = Client::getIP();
+        $protocol = getProtocol();
+
         $this->html = <<< HTML_CONTENT
         <!DOCTYPE html>
         <html>
         <head>
-            <title>Home page ({$_SERVER["REMOTE_ADDR"]})</title>
+            <title>Home page ({$ip} | {$protocol})</title>
         </head>
         <body>
-            
+            <h1>Thanks for using Marf-PHP!</h1>
         </body>
         </html>
         HTML_CONTENT;
@@ -24,12 +34,12 @@ class Home extends ViewClass {
         die($this->html);
     }
 
-    public static function getName() {
-        return self::$name;
+    public function getName() {
+        return $this->name;
     }
 
-    public static function getFnex() {
-        return self::$fnex;
+    public function getFnex() {
+        return $this->fnex;
     }
 }
 

@@ -1,7 +1,7 @@
 <?php
 class ViewClass {
-    private static $name;
-    private static $fnex;//File name extention (for MIME type)
+    private $name = "testPage";
+    private $fnex = "html";//File name extention (for MIME type)
     private $html;
 
     public function __construct() {
@@ -21,12 +21,14 @@ class ViewClass {
         die($this->html);
     }
 
-    public static function getName() {
-        return self::$name;
+    public function getName() {
+        return $this->name;
     }
 
-    public static function getFnex() {
-        return self::$fnex;
+    public function getFnex() {
+        return $this->fnex;
     }
 }
+
+//ViewRegister::register(new ViewClass());//Don't forget to register the view
 ?>

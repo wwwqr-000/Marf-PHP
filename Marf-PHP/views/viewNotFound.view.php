@@ -2,11 +2,11 @@
 require_once("../ViewClass.php");
 
 class ViewNotFound extends ViewClass {
-    private static $name = "viewNotFound";
+    private $name = "viewNotFound";
+    private $fnex = "php";
     private $html;
 
     public function __construct() {
-
         $this->html = <<< HTML_CONTENT
         <!DOCTYPE html>
         <html>
@@ -24,10 +24,13 @@ class ViewNotFound extends ViewClass {
         die($this->html);
     }
 
-    public static function getName() {
-        return self::$name;
+    public function getName() {
+        return $this->name;
     }
-    
+
+    public function getFnex() {
+        return $this->fnex;
+    }
 }
 
 ViewRegister::register(new ViewNotFound());

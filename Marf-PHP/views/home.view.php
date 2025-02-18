@@ -6,13 +6,11 @@ class Home extends ViewClass {
     private $html;
 
     public function __construct() {
-        $IP = $_SERVER["REMOTE_ADDR"];
-
         $this->html = <<< HTML_CONTENT
         <!DOCTYPE html>
         <html>
         <head>
-            <title>Home page ($IP)</title>
+            <title>Home page ({$_SERVER["REMOTE_ADDR"]})</title>
         </head>
         <body>
         </body>

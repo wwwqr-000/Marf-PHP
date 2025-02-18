@@ -1,6 +1,7 @@
 <?php
 class ViewClass {
     private static $name;
+    private static $fnex;//File name extention (for MIME type)
     private $html;
 
     public function __construct() {
@@ -22,6 +23,10 @@ class ViewClass {
 
     public static function getName() {
         return self::$name;
+    }
+
+    public static function getFnex() {
+        return self::$fnex;
     }
 }
 ?>

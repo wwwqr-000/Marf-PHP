@@ -3,6 +3,7 @@ require_once("../ViewClass.php");
 
 class Home extends ViewClass {
     private static $name = "home";
+    private static $fnex = "php";
     private $html;
 
     public function __construct() {
@@ -13,6 +14,7 @@ class Home extends ViewClass {
             <title>Home page ({$_SERVER["REMOTE_ADDR"]})</title>
         </head>
         <body>
+            
         </body>
         </html>
         HTML_CONTENT;
@@ -25,7 +27,10 @@ class Home extends ViewClass {
     public static function getName() {
         return self::$name;
     }
-    
+
+    public static function getFnex() {
+        return self::$fnex;
+    }
 }
 
 ViewRegister::register(new Home());

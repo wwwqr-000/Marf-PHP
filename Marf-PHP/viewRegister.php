@@ -2,7 +2,7 @@
 require("viewRequire.php");
 
 class ViewRegister {
-    public static $viewList = [];
+    private static $viewList = [];
 
     public static function register($viewObj) {
         ViewRegister::$viewList[] = $viewObj;

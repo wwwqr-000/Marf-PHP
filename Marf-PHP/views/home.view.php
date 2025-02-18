@@ -1,5 +1,5 @@
 <?php
-require_once("viewClass.php");
+require_once("../viewClass.php");
 
 class Home extends ViewClass {
     private static $name = "home";

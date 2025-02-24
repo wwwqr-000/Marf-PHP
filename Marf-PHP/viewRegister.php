@@ -15,6 +15,7 @@ class ViewRegister {
                 $view->show();
             }
         }
+        die("<h1>Error: view '" . $viewName . "' does not exist.</h1>");
     }
 
     private static function getMimeType($fnex) {

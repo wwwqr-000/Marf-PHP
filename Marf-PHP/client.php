@@ -16,5 +16,17 @@ class Client {
     public static function isHttps() {
         return isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on";
     }
+
+    public static function getRequestMethod() {
+        return $_SERVER["REQUEST_METHOD"];
+    }
+
+    public static function getRoute() {
+        return $_SERVER["REQUEST_URI"];
+    }
+
+    public static function setRoute($route) {
+        $_SERVER["REQUEST_URI"] = $route;
+    }
 }
 ?>

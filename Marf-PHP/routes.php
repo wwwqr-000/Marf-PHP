@@ -2,23 +2,15 @@
 require_once("viewRegister.php");
 require_once("middlewareRegister.php");
 
-$route = $_SERVER["REQUEST_URI"];
-$method = $_SERVER["REQUEST_METHOD"];
-
 class Routes {
-    private static $ignore;
-
     public static function setIgnore($path) {
-        global $route;
-        Routes::$ignore = $path;
-        $route = str_replace(Routes::$ignore, "", $route);
+        Client::setRoute(str_replace($path, "", Client::getRoute()));
     }
 
     public static function redir() {
-        global $route;
 
-        $res = match ($route) {
-            "/" => ["allowed" => [["type" => "GET", "view" => "home", "middleware" => [MiddlewareRegister::check("isLocalIP")]]]],
+        $res = match (Client::getRoute()) {
+            "/" => ["allowed" => [["type" => "GET", "view" => "home", "middleware" => [MiddlewareRegister::check("isHttps")]]], "denyView" => "securityWarning"],
             default => ["allowed" => [["type" => "*", "view" => "viewNotFound"]]]
         };
 
@@ -26,11 +18,10 @@ class Routes {
     }
 
     private static function routeHandler($data) {
-        global $method;
 
         $allowedArr = $data["allowed"];
         foreach ($allowedArr as $allowed) {
-            if ($allowed["type"] == "*" || $allowed["type"] == $method) {//Allowed type methods
+            if ($allowed["type"] == "*" || $allowed["type"] == Client::getRequestMethod()) {//Allowed type methods
                 $validMiddleware = false;
                 if (isset($allowed["middleware"])) {
                     $validMiddleware = true;
@@ -49,11 +40,14 @@ class Routes {
                     Routes::showView($allowed["view"]);
                 }
                 else {
-                    die("<h1>Error: no access (invalid middleware)</h1>");
+                    if (!isset($data["denyView"])) {
+                        die("<h1>Error: no catch for false middleware in routes for view '" . $allowed["view"] . "'.</h1>");
+                    }
+                    Routes::showView($data["denyView"]);
                 }
             }
             else {
-                die("<h1>Error: Request method not allowed</h1>");
+                Routes::showView("invalidRequestMethod");
             }
         }
     }

@@ -20,7 +20,6 @@ class ViewRegister {
 
     private static function getMimeType($fnex) {
         return match ($fnex) {
-            'txt'   => 'text/plain',
             'html', 'htm', 'php' => 'text/html',
             'css'   => 'text/css',
             'csv'   => 'text/csv',

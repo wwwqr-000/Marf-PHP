@@ -2,12 +2,16 @@
 require_once("../ViewClass.php");
 
 class SecurityWarning extends ViewClass {
-    private $name = "securityWarning";
-    private $fnex = "php";
-    private $html;
+    private $name;
+    private $fnex;
 
     public function __construct() {
-        $this->html = <<< HTML_CONTENT
+        $this->name = "securityWarning";
+        $this->fnex = "php";
+    }
+
+    public function show() {
+        $html = <<< HTML_CONTENT
         <!DOCTYPE html>
         <html>
         <head>
@@ -20,10 +24,7 @@ class SecurityWarning extends ViewClass {
         </body>
         </html>
         HTML_CONTENT;
-    }
-
-    public function show() {
-        die($this->html);
+        die($html);
     }
 
     public function getName() {

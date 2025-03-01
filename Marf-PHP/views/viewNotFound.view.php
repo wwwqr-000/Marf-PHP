@@ -4,10 +4,14 @@ require_once("../ViewClass.php");
 class ViewNotFound extends ViewClass {
     private $name = "viewNotFound";
     private $fnex = "php";
-    private $html;
 
     public function __construct() {
-        $this->html = <<< HTML_CONTENT
+        $this->name = "viewNotFound";
+        $this->fnex = "php";
+    }
+
+    public function show() {
+        $html = <<< HTML_CONTENT
         <!DOCTYPE html>
         <html>
         <head>
@@ -18,10 +22,7 @@ class ViewNotFound extends ViewClass {
         </body>
         </html>
         HTML_CONTENT;
-    }
-
-    public function show() {
-        die($this->html);
+        die($html);
     }
 
     public function getName() {

@@ -1,5 +1,11 @@
 <?php
 class Client {
+    private $originalRoute;
+
+    public function __construct() {
+        $this->originalRoute = $_SERVER["REQUEST_URI"];
+    }
+
     public static function getIP() {
         return $_SERVER["REMOTE_ADDR"];
     }
@@ -27,6 +33,10 @@ class Client {
 
     public static function setRoute($route) {
         $_SERVER["REQUEST_URI"] = $route;
+    }
+
+    public static function getOriginalRoute() {
+        return $this->$originalRoute;
     }
 }
 ?>

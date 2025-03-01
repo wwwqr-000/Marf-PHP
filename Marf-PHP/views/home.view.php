@@ -9,15 +9,18 @@ function getProtocol() {
 }
 
 class Home extends ViewClass {
-    private $name = "home";
-    private $fnex = "php";
-    private $html;
+    private $name;
+    private $fnex;
 
     public function __construct() {
+        $this->name = "home";
+        $this->fnex = "php";
+    }
+
+    public function show() {
         $ip = Client::getIP();
         $protocol = getProtocol();
-
-        $this->html = <<< HTML_CONTENT
+        $html = <<< HTML_CONTENT
         <!DOCTYPE html>
         <html>
         <head>
@@ -28,10 +31,7 @@ class Home extends ViewClass {
         </body>
         </html>
         HTML_CONTENT;
-    }
-
-    public function show() {
-        die($this->html);
+        die($html);
     }
 
     public function getName() {

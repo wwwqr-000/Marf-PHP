@@ -2,13 +2,17 @@
 require_once("../ViewClass.php");
 
 class InvalidRequestMethod extends ViewClass {
-    private $name = "invalidRequestMethod";
-    private $fnex = "php";
-    private $html;
+    private $name;
+    private $fnex;
 
     public function __construct() {
+        $this->name = "invalidRequestMethod";
+        $this->fnex = "php";
+    }
+
+    public function show() {
         $method = Client::getRequestMethod();
-        $this->html = <<< HTML_CONTENT
+        $html = <<< HTML_CONTENT
         <!DOCTYPE html>
         <html>
         <head>
@@ -20,10 +24,7 @@ class InvalidRequestMethod extends ViewClass {
         </body>
         </html>
         HTML_CONTENT;
-    }
-
-    public function show() {
-        die($this->html);
+        die($html);
     }
 
     public function getName() {

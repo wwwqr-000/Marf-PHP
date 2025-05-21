@@ -1,9 +1,9 @@
 <?php
 class Client {
-    private $originalRoute;
+    private static $originalRoute;
 
     public function __construct() {
-        $this->originalRoute = $_SERVER["REQUEST_URI"];
+        self::$originalRoute = $_SERVER["REQUEST_URI"];
     }
 
     public static function getIP() {
@@ -15,7 +15,8 @@ class Client {
             "get" => $_GET,
             "server" => $_SERVER,
             "session" => $_SESSION,
-            default => $_POST
+            "files" => $_FILES,
+            "post" => $_POST
         };
     }
 
@@ -36,7 +37,11 @@ class Client {
     }
 
     public static function getOriginalRoute() {
-        return $this->$originalRoute;
+        return self::$originalRoute;
+    }
+
+    public static function isLoggedin() {
+        return $_SESSION["loggedin"];
     }
 }
 ?>

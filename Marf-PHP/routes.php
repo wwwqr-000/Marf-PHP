@@ -9,8 +9,14 @@ class Routes {
 
     public static function redir() {
 
-        $res = match (Client::getRoute()) {
-            "/" => ["allowed" => [["type" => "GET", "view" => "home", "middleware" => [MiddlewareRegister::check("isHttps")]]], "denyView" => "securityWarning"],
+        $res = match (true) {
+            //Your routes here
+            Client::getRoute() == "/" => ["allowed" => [
+                ["type" => "GET", "view" => "home", "middleware" => [
+                    MiddlewareRegister::check("isHttps")
+                ]]
+            ], "denyView" => "securityWarning"],
+            //
             default => ["allowed" => [["type" => "*", "view" => "viewNotFound"]]]
         };
 

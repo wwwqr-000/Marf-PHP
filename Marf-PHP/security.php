@@ -7,7 +7,7 @@ class Security {
     private static $algoHash;
 
     public static function init() {
-        self::$ivKey = "1234567890123456";//16 chars (This is an example iv-key! Replace!)
+        self::$ivKey = random_bytes(16);
         self::$aesKey = "12345678901234567890123456789012";//32 chars (This is an example aes-key! Replace!)
         self::$algoName = "aes-256-cbc";
         self::$algoType = OPENSSL_RAW_DATA;

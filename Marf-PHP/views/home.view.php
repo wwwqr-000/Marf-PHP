@@ -20,6 +20,9 @@ class Home extends ViewClass {
     public function show() {
         $ip = Client::getIP();
         $protocol = getProtocol();
+        $encStr = Security::encryptStr("Marf-PHP");
+        $decStr = Security::decryptStr($encStr);
+        $hashStr = Security::hashStr($decStr);
         $html = <<< HTML_CONTENT
         <!DOCTYPE html>
         <html>
@@ -28,6 +31,10 @@ class Home extends ViewClass {
         </head>
         <body>
             <h1>Thanks for using Marf-PHP!</h1>
+            <br>
+            <p>This is a encrypted string: {$encStr}</p>
+            <p>This is that string, but decrypted: {$decStr}</p>
+            <p>This is the hash of {$decStr}: {$hashStr}</p>
         </body>
         </html>
         HTML_CONTENT;

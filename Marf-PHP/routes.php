@@ -11,8 +11,11 @@ class Routes {
 
         $res = match (true) {
             //Your routes here
-            Client::getRoute() == "/" => ["allowed" => [
-                ["type" => "GET", "view" => "home", "middleware" => [
+            Client::getRoute() == "/" => ["allowed" => [//Home page
+                ["type" => "GET", "view" => "home"]]
+            ],
+            Client::getRoute() == "/https" => ["allowed" => [//HTTPS check page
+                ["type" => "GET", "view" => "httpsCheck", "middleware" => [
                     MiddlewareRegister::check("isHttps")
                 ]]
             ], "denyView" => "securityWarning"],

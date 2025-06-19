@@ -17,7 +17,7 @@ class HTTPSCheck extends View {
             <title>HTTPS check page</title>
         </head>
         <body>
-            <h1>You are using HTTPS (better than HTTPS protocol), otherwise you would get the middleware disruption.</h1>
+            <h1>You are using HTTPS! (better than HTTP protocol)</h1>
         </body>
         </html>
         HTML_CONTENT;

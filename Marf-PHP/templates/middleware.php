@@ -6,7 +6,7 @@ class Middleware {
         return self::$name;
     }
 
-    public static function check() {
+    public static function check($arg = null) {
         return false;
     }
 }

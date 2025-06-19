@@ -1,13 +1,8 @@
 <?php
 
 class SecurityWarning extends View {
-    private $name;
-    private $fnex;
-
-    public function __construct() {
-        $this->name = "securityWarning";
-        $this->fnex = "php";
-    }
+    protected $name = "securityWarning";
+    protected $fnex = "php";
 
     public function show() {
         $html = <<< HTML_CONTENT
@@ -24,14 +19,6 @@ class SecurityWarning extends View {
         </html>
         HTML_CONTENT;
         die($html);
-    }
-
-    public function getName() {
-        return $this->name;
-    }
-
-    public function getFnex() {
-        return $this->fnex;
     }
 }
 

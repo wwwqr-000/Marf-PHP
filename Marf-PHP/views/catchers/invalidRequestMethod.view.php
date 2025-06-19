@@ -1,13 +1,8 @@
 <?php
 
 class InvalidRequestMethod extends View {
-    private $name;
-    private $fnex;
-
-    public function __construct() {
-        $this->name = "invalidRequestMethod";
-        $this->fnex = "php";
-    }
+    protected $name = "invalidRequestMethod";
+    protected $fnex = "php";
 
     public function show() {
         $method = Client::getRequestMethod();
@@ -24,14 +19,6 @@ class InvalidRequestMethod extends View {
         </html>
         HTML_CONTENT;
         die($html);
-    }
-
-    public function getName() {
-        return $this->name;
-    }
-
-    public function getFnex() {
-        return $this->fnex;
     }
 }
 

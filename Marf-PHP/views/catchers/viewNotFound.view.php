@@ -1,13 +1,8 @@
 <?php
 
 class ViewNotFound extends View {
-    private $name = "viewNotFound";
-    private $fnex = "php";
-
-    public function __construct() {
-        $this->name = "viewNotFound";
-        $this->fnex = "php";
-    }
+    protected $name = "viewNotFound";
+    protected $fnex = "php";
 
     public function show() {
         $html = <<< HTML_CONTENT
@@ -17,19 +12,12 @@ class ViewNotFound extends View {
             <title>Not found</title>
         </head>
         <body>
-            <h1>View Not Found</h1>
+            <h1>View / Page Not Found</h1>
+            <a href="./">Back to home</a>
         </body>
         </html>
         HTML_CONTENT;
         die($html);
-    }
-
-    public function getName() {
-        return $this->name;
-    }
-
-    public function getFnex() {
-        return $this->fnex;
     }
 }
 

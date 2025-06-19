@@ -1,13 +1,8 @@
 <?php
 
 class HTTPSCheck extends View {
-    private $name;
-    private $fnex;
-
-    public function __construct() {
-        $this->name = "httpsCheck";
-        $this->fnex = "php";
-    }
+    protected $name = "httpsCheck";
+    protected $fnex = "php";
 
     public function show() {
         $html = <<< HTML_CONTENT
@@ -22,14 +17,6 @@ class HTTPSCheck extends View {
         </html>
         HTML_CONTENT;
         die($html);
-    }
-
-    public function getName() {
-        return $this->name;
-    }
-
-    public function getFnex() {
-        return $this->fnex;
     }
 }
 

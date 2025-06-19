@@ -1,13 +1,9 @@
 <?php
 
 class IsHttps extends Middleware {
-    private static $name = "isHttps";
+    protected $name = "isHttps";
 
-    public static function getName() {
-        return self::$name;
-    }
-
-    public static function check($arg = null) {
+    public function check($arg = null) {
         return Client::isHttps();
     }
 }

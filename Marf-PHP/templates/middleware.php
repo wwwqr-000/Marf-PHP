@@ -1,12 +1,12 @@
 <?php
 class Middleware {
-    private static $name;
+    protected $name;
 
-    public static function getName() {
-        return self::$name;
+    public function getName() {
+        return $this->name;
     }
 
-    public static function check($arg = null) {
+    public function check($arg = null) {
         return false;
     }
 }

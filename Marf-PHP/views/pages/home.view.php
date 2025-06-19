@@ -1,24 +1,19 @@
 <?php
 
-function getProtocol() {
-    if (Client::isHttps()) {
-        return "https";
-    }
-    return "http";
-}
-
 class Home extends View {
-    private $name;
-    private $fnex;
+    protected $name = "home";
+    protected $fnex = "php";
 
-    public function __construct() {
-        $this->name = "home";
-        $this->fnex = "php";
+    private function getProtocol() {
+        if (Client::isHttps()) {
+            return "https";
+        }
+        return "http";
     }
 
     public function show() {
         $ip = Client::getIP();
-        $protocol = getProtocol();
+        $protocol = $this->getProtocol();
         $encStr = Security::encryptStr("Marf-PHP");
         $decStr = Security::decryptStr($encStr);
         $hashStr = Security::hashStr($decStr);
@@ -38,14 +33,6 @@ class Home extends View {
         </html>
         HTML_CONTENT;
         die($html);
-    }
-
-    public function getName() {
-        return $this->name;
-    }
-
-    public function getFnex() {
-        return $this->fnex;
     }
 }
 

@@ -9,8 +9,8 @@ class MiddlewareRegister {
 
     public static function check($mwName, $arg = null) {
         foreach (MiddlewareRegister::$mwList as $mw) {
-            if ($mw::getName() == $mwName) {
-                return $mw::check($arg);
+            if ($mw->getName() == $mwName) {
+                return $mw->check($arg);
             }
         }
         return false;

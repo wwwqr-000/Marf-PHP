@@ -1,12 +1,7 @@
 <?php
 class View {
-    private $name;
-    private $fnex;
-
-    public function __construct() {
-        $this->name = "";
-        $this->fnex = "";
-    }
+    protected $name;
+    protected $fnex;
 
     public function show() {
         die();

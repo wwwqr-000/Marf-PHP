@@ -1,37 +1,33 @@
 <?php
 session_start();
 
-function requireFiles($root, $name) {
-    $iterator = new RecursiveIteratorIterator(
-        new RecursiveDirectoryIterator($root)
-    );
-
-    $regex = new RegexIterator($iterator, "/\." . $name . "\.php$/i");
-
-    foreach ($regex as $file) {
-        require_once $file->getPathname();
+function requireFiles($root, $suffix) {
+    foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($root)) as $file) {
+        if ($file->isFile() && str_ends_with($file->getFilename(), ".$suffix.php")) {
+            require $file->getPathname();
+        }
     }
 }
 
-require_once("../urls.php");
+require("../urls.php");
 
 //Entities
-require_once("../entities/security.php");
+require("../entities/security.php");
 Security::init();
 
-require_once("../entities/client.php");
-require_once("../entities/router.php");
+require("../entities/client.php");
+require("../entities/router.php");
 //
 
 
 //Templates
-require_once("../templates/middleware.php");
-require_once("../templates/view.php");
+require("../templates/middleware.php");
+require("../templates/view.php");
 //
 
 //Registers
-require_once("../registers/viewRegister.php");
-require_once("../registers/middlewareRegister.php");
+require("../registers/viewRegister.php");
+require("../registers/middlewareRegister.php");
 //
 
 //Files

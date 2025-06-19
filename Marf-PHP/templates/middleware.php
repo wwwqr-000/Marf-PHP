@@ -1,5 +1,5 @@
 <?php
-class MiddlewareClass {
+class Middleware {
     private static $name;
 
     public static function getName() {

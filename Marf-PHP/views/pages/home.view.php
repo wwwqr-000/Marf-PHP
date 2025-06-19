@@ -1,5 +1,4 @@
 <?php
-require_once("../ViewClass.php");
 
 function getProtocol() {
     if (Client::isHttps()) {
@@ -8,7 +7,7 @@ function getProtocol() {
     return "http";
 }
 
-class Home extends ViewClass {
+class Home extends View {
     private $name;
     private $fnex;
 

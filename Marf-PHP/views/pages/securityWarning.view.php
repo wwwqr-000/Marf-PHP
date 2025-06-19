@@ -1,7 +1,6 @@
 <?php
-require_once("../ViewClass.php");
 
-class SecurityWarning extends ViewClass {
+class SecurityWarning extends View {
     private $name;
     private $fnex;
 

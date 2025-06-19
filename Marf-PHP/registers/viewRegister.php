@@ -1,5 +1,4 @@
 <?php
-require("viewRequire.php");
 
 class ViewRegister {
     private static $viewList = [];

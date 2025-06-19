@@ -1,14 +1,13 @@
 <?php
-require_once("../middlewareClass.php");
 
-class IsHttps extends MiddlewareClass {
+class IsHttps extends Middleware {
     private static $name = "isHttps";
 
     public static function getName() {
         return self::$name;
     }
 
-    public static function check() {
+    public static function check($arg = null) {
         return Client::isHttps();
     }
 }

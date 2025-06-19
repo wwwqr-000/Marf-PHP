@@ -1,12 +1,11 @@
 <?php
-require_once("../ViewClass.php");
 
-class HTTPSCheck extends ViewClass {
-    private $name;
-    private $fnex;
+class ViewNotFound extends View {
+    private $name = "viewNotFound";
+    private $fnex = "php";
 
     public function __construct() {
-        $this->name = "httpsCheck";
+        $this->name = "viewNotFound";
         $this->fnex = "php";
     }
 
@@ -15,10 +14,10 @@ class HTTPSCheck extends ViewClass {
         <!DOCTYPE html>
         <html>
         <head>
-            <title>HTTPS check page</title>
+            <title>Not found</title>
         </head>
         <body>
-            <h1>You are using HTTPS (better than HTTPS protocol), otherwise you would get the middleware disruption.</h1>
+            <h1>View Not Found</h1>
         </body>
         </html>
         HTML_CONTENT;
@@ -34,5 +33,5 @@ class HTTPSCheck extends ViewClass {
     }
 }
 
-ViewRegister::register(new HTTPSCheck());
+ViewRegister::register(new ViewNotFound());
 ?>

@@ -1,5 +1,4 @@
 <?php
-require("middlewareRequire.php");
 
 class MiddlewareRegister {
     private static $mwList = [];
@@ -8,10 +7,10 @@ class MiddlewareRegister {
         MiddlewareRegister::$mwList[] = $mwObj;
     }
 
-    public static function check($mwName) {
+    public static function check($mwName, $arg = null) {
         foreach (MiddlewareRegister::$mwList as $mw) {
             if ($mw::getName() == $mwName) {
-                return $mw::check();
+                return $mw::check($arg);
             }
         }
         return false;

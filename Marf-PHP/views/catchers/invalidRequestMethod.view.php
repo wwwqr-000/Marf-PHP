@@ -1,7 +1,6 @@
 <?php
-require_once("../ViewClass.php");
 
-class InvalidRequestMethod extends ViewClass {
+class InvalidRequestMethod extends View {
     private $name;
     private $fnex;
 

@@ -1,3 +1,7 @@
 * {
     background-color: rgb(153, 0, 255);
 }
+
+.pl-d::placeholder {
+    color: white;
+}

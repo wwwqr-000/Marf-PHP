@@ -47,5 +47,10 @@ class Router {
     private static function showView($viewName) {
         ViewRegister::show($viewName);
     }
+
+    public static function to($location) {
+        header("Location: {$location}");
+        die();
+    }
 }
 ?>

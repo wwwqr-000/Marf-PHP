@@ -7,10 +7,13 @@ class HomePost extends View {
     public function show() {
         $rName = Security::getCSRFField("name");
         if (!$rName) {
-            return "Error: CSRF prevention invalid";
+            $_SESSION["test"]["error"] = "No name given";
+            Router::to("./");
         }
-        $name = Client::getData("post")[$rName];
-        return "This is a post request! {$name}";
+
+        $name = Security::sanitizeTxt(Client::getData("post")[$rName]);
+        $_SESSION["test"]["name"] = $name;
+        Router::to("./");
     }
 }
 

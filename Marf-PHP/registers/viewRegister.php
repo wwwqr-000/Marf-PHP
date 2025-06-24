@@ -14,7 +14,9 @@ class ViewRegister {
                 die($view->show());
             }
         }
-        die("<h1>Error: view '" . $viewName . "' does not exist.</h1>");
+        header("Content-Type: application/json");
+        http_response_code(500);
+        die("Error: view '$viewName' not found.");
     }
 
     public static function getMimeType($fnex) {

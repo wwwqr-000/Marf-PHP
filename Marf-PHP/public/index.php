@@ -9,6 +9,23 @@ function requireFiles($root, $suffix) {
     }
 }
 
+//Load .env
+if (!file_exists("../.env")) {
+    throw new Error("environment file not found");
+}
+
+$lines = file("../.env", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+foreach($lines as $line) {
+    if (str_starts_with(trim($line), "#")) { continue; }
+
+    list($name, $value) = explode("=", $line, 2);
+    $name = trim($name);
+    $value = trim($value);
+    $value = trim($value, "\"'");
+    putenv("$name=$value");
+}
+//
+
 require("../urls.php");
 
 //Entities
@@ -17,6 +34,11 @@ Security::init();
 
 require("../entities/client.php");
 require("../entities/router.php");
+require("../entities/database.php");
+
+if (getenv("DATABASE_ENABLED") == "true") {
+    Database::init();
+}
 //
 
 

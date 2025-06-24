@@ -8,10 +8,10 @@ class Security {
 
     public static function init() {
         self::$ivKey = random_bytes(16);
-        self::$aesKey = "12345678901234567890123456789012";//32 chars (This is an example aes-key! Replace!)
-        self::$algoName = "aes-256-cbc";
+        self::$aesKey = getenv("SECURITY_AES_KEY");
+        self::$algoName = getenv("SECURITY_AES_ALGO");
         self::$algoType = OPENSSL_RAW_DATA;
-        self::$algoHash = "sha256";
+        self::$algoHash = getenv("SECURITY_HASH_ALGO");
     }
 
     public static function encryptStr($string) {

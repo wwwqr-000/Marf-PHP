@@ -17,11 +17,13 @@ class Home extends View {
         $encStr = Security::encryptStr("Marf-PHP");
         $decStr = Security::decryptStr($encStr);
         $hashStr = Security::hashStr($decStr);
+        
         return <<< HTML_CONTENT
         <!DOCTYPE html>
         <html>
         <head>
             <title>Home page ({$ip} | {$protocol})</title>
+            <link rel="stylesheet" href="assets/css/self.css">
         </head>
         <body>
             <h1>Thanks for using Marf-PHP!</h1>

@@ -7,7 +7,7 @@ class Urls {
 
             //Check if website is online
             getenv("GENERAL_WEBSITE_IS_ONLINE") != "true" => ["allowed" => [
-
+                ["type" => "*", "view" => "websiteOffline"]
             ]],
             //
 
@@ -25,16 +25,6 @@ class Urls {
                     MiddlewareRegister::check("isHttps")
                 ]]
             ], "denyView" => "securityWarning"],
-            //
-
-            //Assets API
-            str_contains($route, "/api/assets/") => ["allowed" => [
-                ["type" => "GET", "view" => "assets_api", "middleware" => [
-                    MiddlewareRegister::check("isAsset", [
-                        "css/self",
-                    ])
-                ]]
-                ], "denyView" => "noAccessAPI"],
             //
 
             //

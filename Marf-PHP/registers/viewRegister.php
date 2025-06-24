@@ -17,7 +17,7 @@ class ViewRegister {
         die("<h1>Error: view '" . $viewName . "' does not exist.</h1>");
     }
 
-    private static function getMimeType($fnex) {
+    public static function getMimeType($fnex) {
         return match ($fnex) {
             'html', 'htm', 'php' => 'text/html',
             'css'   => 'text/css',

@@ -5,7 +5,7 @@ class HTTPSCheck extends View {
     protected $fnex = "php";
 
     public function show() {
-        $html = <<< HTML_CONTENT
+        return <<< HTML_CONTENT
         <!DOCTYPE html>
         <html>
         <head>
@@ -16,7 +16,6 @@ class HTTPSCheck extends View {
         </body>
         </html>
         HTML_CONTENT;
-        return $html;
     }
 }
 

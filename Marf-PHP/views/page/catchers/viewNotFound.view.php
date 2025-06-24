@@ -5,7 +5,7 @@ class ViewNotFound extends View {
     protected $fnex = "php";
 
     public function show() {
-        $html = <<< HTML_CONTENT
+        return <<< HTML_CONTENT
         <!DOCTYPE html>
         <html>
         <head>
@@ -17,7 +17,6 @@ class ViewNotFound extends View {
         </body>
         </html>
         HTML_CONTENT;
-        return $html;
     }
 }
 

@@ -13,7 +13,9 @@ class MiddlewareRegister {
                 return $mw->check($arg);
             }
         }
-        return false;
+        header("Content-Type: application/json");
+        http_response_code(500);
+        die("Error: middleware '$mwName' not found.");
     }
 }
 ?>

@@ -6,7 +6,7 @@ class InvalidRequestMethod extends View {
 
     public function show() {
         $method = Client::getRequestMethod();
-        $html = <<< HTML_CONTENT
+        return <<< HTML_CONTENT
         <!DOCTYPE html>
         <html>
         <head>
@@ -18,7 +18,6 @@ class InvalidRequestMethod extends View {
         </body>
         </html>
         HTML_CONTENT;
-        return $html;
     }
 }
 

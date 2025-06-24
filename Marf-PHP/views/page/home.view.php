@@ -17,7 +17,7 @@ class Home extends View {
         $encStr = Security::encryptStr("Marf-PHP");
         $decStr = Security::decryptStr($encStr);
         $hashStr = Security::hashStr($decStr);
-        $html = <<< HTML_CONTENT
+        return <<< HTML_CONTENT
         <!DOCTYPE html>
         <html>
         <head>
@@ -32,7 +32,6 @@ class Home extends View {
         </body>
         </html>
         HTML_CONTENT;
-        return $html;
     }
 }
 

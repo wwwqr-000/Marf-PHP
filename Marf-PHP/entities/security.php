@@ -29,5 +29,21 @@ class Security {
     public static function sanitizeTxt($txt) {
         return htmlentities($txt);
     }
+
+    public static function genCSRFField($fieldName) {
+        $token = base64_encode(random_bytes(random_int(30, 35)));
+        $_SESSION["Marf-PHP"]["security"]["CSRF"][Security::hashStr($fieldName)] = $token;
+        return $token;
+    }
+
+    public static function getCSRFField($fieldName) {
+        $hashedFName = Security::hashStr($fieldName);
+        if (
+            empty($_SESSION["Marf-PHP"]["security"]["CSRF"]) ||
+            empty($_SESSION["Marf-PHP"]["security"]["CSRF"][$hashedFName])
+        ) { return false; }
+
+        return $_SESSION["Marf-PHP"]["security"]["CSRF"][$hashedFName];
+    }
 }
 ?>

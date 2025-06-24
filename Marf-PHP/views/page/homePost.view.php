@@ -5,7 +5,12 @@ class HomePost extends View {
     protected $fnex = "txt";
 
     public function show() {
-        return "This is a post request!";
+        $rName = Security::getCSRFField("name");
+        if (!$rName) {
+            return "Error: CSRF prevention invalid";
+        }
+        $name = Client::getData("post")[$rName];
+        return "This is a post request! {$name}";
     }
 }
 

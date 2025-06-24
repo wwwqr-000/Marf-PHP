@@ -17,6 +17,8 @@ class Home extends View {
         $encStr = Security::encryptStr("Marf-PHP");
         $decStr = Security::decryptStr($encStr);
         $hashStr = Security::hashStr($decStr);
+
+        $rName = Security::genCSRFField("name");
         
         return <<< HTML_CONTENT
         <!DOCTYPE html>
@@ -31,6 +33,9 @@ class Home extends View {
             <p>This is a encrypted string: {$encStr}</p>
             <p>This is that string, but decrypted: {$decStr}</p>
             <p>This is the hash of {$decStr}: {$hashStr}</p>
+            <form method="post" action="">
+                <input type="text" name="{$rName}">
+            </form>
         </body>
         </html>
         HTML_CONTENT;

@@ -4,7 +4,7 @@ class View {
     protected $fnex;
 
     public function show() {
-        die();
+        return "";
     }
 
     public function getName() {

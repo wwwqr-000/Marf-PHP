@@ -5,7 +5,7 @@ class HomePost extends View {
     protected $fnex = "txt";
 
     public function show() {
-        die("This is a post request!");
+        return "This is a post request!";
     }
 }
 

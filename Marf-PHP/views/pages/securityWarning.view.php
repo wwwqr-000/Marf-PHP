@@ -18,7 +18,7 @@ class SecurityWarning extends View {
         </body>
         </html>
         HTML_CONTENT;
-        die($html);
+        return $html;
     }
 }
 

@@ -25,5 +25,9 @@ class Security {
     public static function hashStr($string) {
         return hash(Security::$algoHash, $string, false);
     }
+
+    public static function sanitizeTxt($txt) {
+        return htmlentities($txt);
+    }
 }
 ?>

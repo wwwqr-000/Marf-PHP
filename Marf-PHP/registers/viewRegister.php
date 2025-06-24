@@ -11,7 +11,7 @@ class ViewRegister {
         foreach (ViewRegister::$viewList as $view) {
             if ($view->getName() == $viewName) {
                 header("Content-Type: " . ViewRegister::getMimeType($view->getFnex()));
-                $view->show();
+                die($view->show());
             }
         }
         die("<h1>Error: view '" . $viewName . "' does not exist.</h1>");

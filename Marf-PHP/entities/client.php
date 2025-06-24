@@ -39,9 +39,5 @@ class Client {
     public static function getOriginalRoute() {
         return self::$originalRoute;
     }
-
-    public static function isLoggedin() {
-        return $_SESSION["loggedin"];
-    }
 }
 ?>

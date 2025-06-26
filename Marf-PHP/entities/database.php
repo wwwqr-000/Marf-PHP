@@ -17,7 +17,7 @@ class Database {
             getenv("DATABASE_USER_NAME"),
             getenv("DATABASE_USER_PASSWORD"),
             getenv("DATABASE_NAME"),
-            getenv("DATABASE_PORT")
+            intval(getenv("DATABASE_PORT"))
         );
     }
 }

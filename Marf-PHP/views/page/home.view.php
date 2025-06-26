@@ -24,11 +24,12 @@ class Home extends View {
         if (isset(Client::getData("session")["test"]) && isset(Client::getData("session")["test"]["error"]) && !empty(Client::getData("session")["test"]["error"])) {
             $msg = Security::sanitizeTxt(Client::getData("session")["test"]["error"]);
             $error = "<script>setTimeout(() => { window.alert('$msg'); }, 100);</script>";
+            unset($_SESSION["test"]["error"]);
         }
 
         $name = "";
         if (isset(Client::getData("session")["test"]) && isset(Client::getData("session")["test"]["name"]) && !empty(Client::getData("session")["test"]["name"])) {
-            $name = "<h1>Your text: " . Client::getData("session")["test"]["name"] . "</h1>";
+            $name = "<h1 class=\"has-text-centered is-size-4 mt-6\">Your text: " . Client::getData("session")["test"]["name"] . "</h1>";
         }
 
         return <<< HTML_CONTENT
@@ -37,18 +38,31 @@ class Home extends View {
         <head>
             <title>Home page ({$ip} | {$protocol})</title>
             <link rel="stylesheet" href="assets/css/self.css">
+            <link rel="stylesheet" href="assets/css/bulma.css">
             {$error}
         </head>
         <body>
-            <h1>Thanks for using Marf-PHP!</h1>
-            <br>
-            <p>This is a encrypted string: {$encStr}</p>
-            <p>This is that string, but decrypted: {$decStr}</p>
-            <p>This is the hash of {$decStr}: {$hashStr}</p>
-            <form method="post" action="">
-                <input class="pl-d" type="text" name="{$rName}" placeholder="Enter some text">
-                <input type="submit" value="send">
-            </form>
+            <div class="section has-text-centered">
+                <h1 class="title mb-5">Thanks for using Marf-PHP!</h1>
+                <p class="is-size-6">This is a encrypted string: {$encStr}</p>
+                <p class="is-size-6">This is that string, but decrypted: {$decStr}</p>
+                <p class="is-size-6">This is the hash of {$decStr}: {$hashStr}</p>
+            </div>
+            <div class="container centered-container is-flex is-justify-content-center is-align-items-center">
+                <form class="box has-text-centered" method="post" action="">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input has-text-centered" type="text" name="{$rName}" placeholder="Enter some text" required>
+                        </div>
+                    </div>
+                    <div class="field is-grouped is-grouped-centered">
+                        <div class="control">
+                            <input class="button is-primary" type="submit" value="Send" title="Send example POST">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
             {$name}
         </body>
         </html>

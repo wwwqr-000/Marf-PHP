@@ -12,6 +12,10 @@ class HomePost extends View {
         }
 
         $name = Security::sanitizeTxt(Client::getData("post")[$rName]);
+        if (empty($name)) {
+            $_SESSION["test"]["error"] = "Text field empty";
+            Router::to("./");
+        }
         $_SESSION["test"]["name"] = $name;
         Router::to("./");
     }

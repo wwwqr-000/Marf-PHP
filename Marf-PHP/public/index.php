@@ -31,6 +31,7 @@ require("../urls.php");
 //Entities
 require("../entities/security.php");
 Security::init();
+Security::trySessionRefresh();
 
 require("../entities/client.php");
 require("../entities/router.php");

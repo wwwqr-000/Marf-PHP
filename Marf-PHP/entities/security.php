@@ -45,5 +45,23 @@ class Security {
 
         return $_SESSION["Marf-PHP"]["security"]["CSRF"][$hashedFName];
     }
+
+    public static function trySessionRefresh() {
+        if (!isset($_SESSION["Marf-PHP"]["sessionLastRefresh"])) {
+            $_SESSION["Marf-PHP"]["sessionLastRefresh"] = time();
+        }
+
+        $now = time();
+
+        if ($now - $_SESSION["Marf-PHP"]["sessionLastRefresh"] > 60 * intval(getenv("SECURITY_SESSION_REFRESH_TIME"))) {
+            if (!isset($_SESSION["Marf-PHP"]["sessionRefreshInProgress"])
+            || $_SESSION["Marf-PHP"]["sessionRefreshInProgress"] !== $now) {
+                $_SESSION["Marf-PHP"]["sessionRefreshInProgress"] = $now;
+                session_regenerate_id(true);
+                $_SESSION["Marf-PHP"]["sessionLastRefresh"] = $now;
+                unset($_SESSION["Marf-PHP"]["sessionRefreshInProgress"]);
+            }
+        }
+    }
 }
 ?>

@@ -1,4 +1,6 @@
 <?php
+ini_set('session.sid_length', 128);
+ini_set('session.sid_bits_per_character', 6);
 session_start();
 
 function requireFiles($root, $suffix) {

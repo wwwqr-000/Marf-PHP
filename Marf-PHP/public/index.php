@@ -58,6 +58,15 @@ requireFiles("../views", "view");
 requireFiles("../middleware", "mw");
 //
 
+//Register files
+foreach (get_declared_classes() as $class) {
+    if (is_subclass_of($class, "View")) {
+        $name = $class::getName();
+        ViewRegister::register($name, $class);
+    }
+}
+//
+
 //Path here get's removed from route: "http://localhost/Marf-PHP/Marf-PHP/public/" -> "/"
 Router::setIgnore("/Marf-PHP/Marf-PHP/public");
 //

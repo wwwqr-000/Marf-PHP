@@ -1,7 +1,7 @@
 <?php
 
 class ViewNotFound extends View {
-    protected $name = "viewNotFound";
+    protected static $name = "viewNotFound";
     protected $fnex = "php";
 
     public function show() {
@@ -19,6 +19,4 @@ class ViewNotFound extends View {
         HTML_CONTENT;
     }
 }
-
-ViewRegister::register(new ViewNotFound());
 ?>

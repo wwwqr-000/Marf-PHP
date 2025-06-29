@@ -1,7 +1,7 @@
 <?php
 
 class HomePost extends View {
-    protected $name = "homePost";
+    protected static $name = "homePost";
     protected $fnex = "txt";
 
     public function show() {
@@ -20,6 +20,4 @@ class HomePost extends View {
         Router::to("./");
     }
 }
-
-ViewRegister::register(new HomePost());
 ?>

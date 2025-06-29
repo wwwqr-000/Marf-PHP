@@ -1,22 +1,23 @@
 <?php
 
 class ViewRegister {
-    private static $viewList = [];
+    private static $viewMap = [];
 
-    public static function register($viewObj) {
-        ViewRegister::$viewList[] = $viewObj;
+    public static function register($viewName, $className) {
+        self::$viewMap[$viewName] = $className;
     }
 
     public static function show($viewName) {
-        foreach (ViewRegister::$viewList as $view) {
-            if ($view->getName() == $viewName) {
-                header("Content-Type: " . ViewRegister::getMimeType($view->getFnex()));
-                die($view->show());
-            }
+        if (!isset(self::$viewMap[$viewName])) {
+            header("Content-Type: application/json");
+            http_response_code(500);
+            die("Error: view '$viewName' not found.");
         }
-        header("Content-Type: application/json");
-        http_response_code(500);
-        die("Error: view '$viewName' not found.");
+
+        $className = self::$viewMap[$viewName];
+        $view = new $className();
+        header("Content-Type: " . self::getMimeType($view->getFnex()));
+        die($view->show());
     }
 
     public static function getMimeType($fnex) {

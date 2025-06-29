@@ -1,7 +1,7 @@
 <?php
 
 class Home extends View {
-    protected $name = "home";
+    protected static $name = "home";
     protected $fnex = "php";
 
     private function getProtocol() {
@@ -69,6 +69,4 @@ class Home extends View {
         HTML_CONTENT;
     }
 }
-
-ViewRegister::register(new Home());
 ?>

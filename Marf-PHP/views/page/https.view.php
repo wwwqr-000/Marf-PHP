@@ -1,7 +1,7 @@
 <?php
 
 class HTTPSCheck extends View {
-    protected $name = "httpsCheck";
+    protected static $name = "httpsCheck";
     protected $fnex = "php";
 
     public function show() {
@@ -18,6 +18,4 @@ class HTTPSCheck extends View {
         HTML_CONTENT;
     }
 }
-
-ViewRegister::register(new HTTPSCheck());
 ?>

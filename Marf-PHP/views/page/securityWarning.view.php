@@ -1,7 +1,7 @@
 <?php
 
 class SecurityWarning extends View {
-    protected $name = "securityWarning";
+    protected static $name = "securityWarning";
     protected $fnex = "php";
 
     public function show() {
@@ -20,6 +20,4 @@ class SecurityWarning extends View {
         HTML_CONTENT;
     }
 }
-
-ViewRegister::register(new SecurityWarning());
 ?>

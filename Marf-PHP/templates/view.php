@@ -1,14 +1,14 @@
 <?php
 class View {
-    protected $name;
+    protected static $name;
     protected $fnex;
 
     public function show() {
         return "";
     }
 
-    public function getName() {
-        return $this->name;
+    public static function getName() {
+        return static::$name;
     }
 
     public function getFnex() {

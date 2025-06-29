@@ -1,7 +1,7 @@
 <?php
 
 class WebsiteOffline extends View {
-    protected $name = "websiteOffline";
+    protected static $name = "websiteOffline";
     protected $fnex = "php";
 
     public function show() {
@@ -10,6 +10,4 @@ class WebsiteOffline extends View {
         HTML_CONTENT;
     }
 }
-
-ViewRegister::register(new WebsiteOffline());
 ?>

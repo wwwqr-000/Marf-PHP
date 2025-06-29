@@ -58,11 +58,17 @@ requireFiles("../views", "view");
 requireFiles("../middleware", "mw");
 //
 
-//Register files
+//View and Middleware mapper
 foreach (get_declared_classes() as $class) {
     if (is_subclass_of($class, "View")) {
         $name = $class::getName();
         ViewRegister::register($name, $class);
+        continue;
+    }
+    if (is_subclass_of($class, "Middleware")) {
+        $name = $class::getName();
+        MiddlewareRegister::register($name, $class);
+        continue;
     }
 }
 //

@@ -1,9 +1,9 @@
 <?php
 class Middleware {
-    protected $name;
+    protected static $name;
 
-    public function getName() {
-        return $this->name;
+    public static function getName() {
+        return static::$name;
     }
 
     public function check($arg = null) {

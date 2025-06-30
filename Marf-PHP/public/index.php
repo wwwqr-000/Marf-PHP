@@ -83,7 +83,7 @@ session_start();
 
 /* Path here get's removed from route: "http://localhost/Marf-PHP/Marf-PHP/public/" -> "/"
     Use setIgnore when the root directory of this website isn't "/", but for example: "/website/"
-    If your root of the website is located as "/", the you should not use setIgnore.
+    If your root of the website is located as "/", then you should not use setIgnore.
 */
 //Router::setIgnore("/Marf-PHP/Marf-PHP/public");
 //

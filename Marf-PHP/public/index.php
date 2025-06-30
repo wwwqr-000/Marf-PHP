@@ -1,6 +1,4 @@
 <?php
-ini_set('session.sid_length', 128);
-ini_set('session.sid_bits_per_character', 6);
 session_start();
 
 function requireFiles($root, $suffix) {
@@ -73,6 +71,11 @@ foreach (get_declared_classes() as $class) {
         continue;
     }
 }
+//
+
+//Modify php.ini for this instance
+ini_set('session.sid_length', intval(getenv("SECURITY_PHPSESID_LENGTH")));
+ini_set('session.sid_bits_per_character', 6);
 //
 
 //Path here get's removed from route: "http://localhost/Marf-PHP/Marf-PHP/public/" -> "/"

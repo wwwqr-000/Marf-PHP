@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 function requireFiles($root, $suffix) {
     foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($root)) as $file) {
@@ -76,6 +75,10 @@ foreach (get_declared_classes() as $class) {
 //Modify php.ini for this instance
 ini_set('session.sid_length', intval(getenv("SECURITY_PHPSESID_LENGTH")));
 ini_set('session.sid_bits_per_character', 6);
+//
+
+//Start session
+session_start();
 //
 
 //Path here get's removed from route: "http://localhost/Marf-PHP/Marf-PHP/public/" -> "/"

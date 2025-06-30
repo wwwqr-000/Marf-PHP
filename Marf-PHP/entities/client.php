@@ -1,11 +1,5 @@
 <?php
 class Client {
-    private static $originalRoute;
-
-    public function __construct() {
-        self::$originalRoute = $_SERVER["REQUEST_URI"];
-    }
-
     public static function getIP() {
         return $_SERVER["REMOTE_ADDR"];
     }
@@ -26,18 +20,6 @@ class Client {
 
     public static function getRequestMethod() {
         return $_SERVER["REQUEST_METHOD"];
-    }
-
-    public static function getRoute() {
-        return $_SERVER["REQUEST_URI"];
-    }
-
-    public static function setRoute($route) {
-        $_SERVER["REQUEST_URI"] = $route;
-    }
-
-    public static function getOriginalRoute() {
-        return self::$originalRoute;
     }
 }
 ?>

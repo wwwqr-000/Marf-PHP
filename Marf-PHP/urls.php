@@ -1,7 +1,7 @@
 <?php
 class Urls {
     public static function getUrl() {
-        $route = Client::getRoute();
+        $route = Router::getRoute();
         return match (true) {
             //Define your url-paths here
 

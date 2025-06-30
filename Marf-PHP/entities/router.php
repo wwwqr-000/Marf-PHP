@@ -1,8 +1,21 @@
 <?php
 
 class Router {
+    private static $originalRoute;
+    private static $ignoredPath;
+
+    public function __construct() {
+        self::$originalRoute = $_SERVER["REQUEST_URI"];
+    }
+
     public static function setIgnore($path) {
-        Client::setRoute(str_replace($path, "", Client::getRoute()));
+        self::setRoute(str_replace($path, "", self::getRoute()));
+        self::$ignoredPath = $path;
+    }
+
+    public static function getRootPath() {
+        return (isset(self::$ignoredPath) && !empty(self::$ignoredPath))
+        ? self::$ignoredPath : "/";
     }
 
     public static function routeHandler($data) {
@@ -51,6 +64,18 @@ class Router {
     public static function to($location) {
         header("Location: {$location}");
         die();
+    }
+
+    public static function getRoute() {
+        return $_SERVER["REQUEST_URI"];
+    }
+
+    public static function setRoute($route) {
+        $_SERVER["REQUEST_URI"] = $route;
+    }
+
+    public static function getOriginalRoute() {
+        return self::$originalRoute;
     }
 }
 ?>

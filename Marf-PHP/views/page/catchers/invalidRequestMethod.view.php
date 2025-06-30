@@ -6,6 +6,7 @@ class InvalidRequestMethod extends View {
 
     public function show() {
         $method = Client::getRequestMethod();
+        $home = Router::getRootPath();
         return <<< HTML_CONTENT
         <!DOCTYPE html>
         <html>
@@ -14,7 +15,7 @@ class InvalidRequestMethod extends View {
         </head>
         <body>
             <h1>Wrong request method. (Error: invalid request method "{$method}")</h1>
-            <a href="./">Back to home</a>
+            <a href="{$home}">Back to home</a>
         </body>
         </html>
         HTML_CONTENT;

@@ -5,6 +5,7 @@ class ViewNotFound extends View {
     protected $fnex = "php";
 
     public function show() {
+        $home = Router::getRootPath();
         return <<< HTML_CONTENT
         <!DOCTYPE html>
         <html>
@@ -13,7 +14,7 @@ class ViewNotFound extends View {
         </head>
         <body>
             <h1>View / Page Not Found</h1>
-            <a href="./">Back to home</a>
+            <a href="{$home}">Back to home</a>
         </body>
         </html>
         HTML_CONTENT;

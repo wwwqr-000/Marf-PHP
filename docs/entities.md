@@ -14,6 +14,8 @@ With the client entity, you can:
 
 <h2>Database</h2>
 
+The database entity is seen
+
 <h2>Router</h2>
 
 <h2>Security</h2>

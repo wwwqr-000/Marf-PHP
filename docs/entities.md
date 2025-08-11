@@ -5,6 +5,13 @@ Marf-PHP uses the word "entities" to group a collection of files containing the 
 
 <h2>Client</h2>
 
+The client entity contains readable information about the request sender. A.K.A. "client"
+With the client entity, you can:
+* Get public IP of request sender
+* Get (NOT SET) data of request sender. Like POST, GET, SERVER, SESSION and FILES data.
+* Check if request sender uses HTTPS or HTTP-protocol.
+* Get the request method of the request sender, for example: "GET" for basic viewing of a page or resource
+
 <h2>Database</h2>
 
 <h2>Router</h2>

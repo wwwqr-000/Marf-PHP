@@ -1,4 +1,4 @@
-<h1>The documentation seen the Marf-PHP framework</h1>
+<h1>Documentation of Marf-PHP</h1>
 
 <h2>About</h2>
 

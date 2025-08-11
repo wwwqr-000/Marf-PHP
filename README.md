@@ -4,37 +4,4 @@
 
 ![image](https://github.com/user-attachments/assets/3abe0b8f-c0a4-47c2-a8be-10b3345ae971)
 
-
-<textarea>
-.
-├── entities
-│   ├── client.php
-│   ├── database.php
-│   ├── router.php
-│   └── security.php
-├── middleware
-│   └── isHttps.mw.php
-├── public
-│   ├── assets
-│   │   └── css
-│   │       ├── bulma.css
-│   │       └── self.css
-│   └── index.php
-├── registers
-│   ├── middlewareRegister.php
-│   └── viewRegister.php
-├── templates
-│   ├── middleware.php
-│   └── view.php
-├── urls.php
-└── views
-    └── page
-        ├── catchers
-        │   ├── invalidRequestMethod.view.php
-        │   ├── viewNotFound.view.php
-        │   └── websiteOffline.view.php
-        ├── homePost.view.php
-        ├── home.view.php
-        ├── https.view.php
-        └── securityWarning.view.php
-</textarea>
+<img width="741" height="1119" alt="Screenshot from 2025-08-11 21-14-31" src="https://github.com/user-attachments/assets/022fca99-0d2e-4531-ac11-bb17f225f057" />

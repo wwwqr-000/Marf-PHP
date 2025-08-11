@@ -5,6 +5,7 @@
 ![image](https://github.com/user-attachments/assets/3abe0b8f-c0a4-47c2-a8be-10b3345ae971)
 
 
+<textarea>
 .
 ├── entities
 │   ├── client.php
@@ -36,3 +37,4 @@
         ├── home.view.php
         ├── https.view.php
         └── securityWarning.view.php
+</textarea>

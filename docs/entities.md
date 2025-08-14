@@ -10,11 +10,11 @@ With the client entity, you can:
 * Get public IP of request sender
 * Get (NOT SET) data of request sender. Like POST, GET, SERVER, SESSION and FILES data.
 * Check if request sender uses HTTPS or HTTP-protocol.
-* Get the request method of the request sender, for example: "GET" for basic viewing of a page or resource
+* Get the request method of the request sender, for example: "GET" for basic viewing of a page or resource.
 
 <h2>Database</h2>
 
-The database entity is seen
+The database entity is a class, containing database related methods. The base class provides the posibility to initialize the connection to a database and to get the <code>$conn</code> object.
 
 <h2>Router</h2>
 

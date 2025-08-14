@@ -14,7 +14,10 @@ With the client entity, you can:
 
 <h2>Database</h2>
 
-The database entity is a class, containing database related methods. The base class provides the posibility to initialize the connection to a database and to get the <code>$conn</code> object.
+The database entity is a class, containing database related methods. The base class provides the posibility to initialize the connection to a database and to get the <code>$conn</code> object. Down below is a list of the methods.
+
+* getConn (Get <code>$conn</code> object, or bool: false if <code>$conn</code> doesn't work)
+* init (Initialize the <code>$conn</code> object)
 
 <h2>Router</h2>
 The router entity contains everything related to routing the client, or the path. Down below is a list of methods in the Router class.

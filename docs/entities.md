@@ -19,13 +19,13 @@ The database entity is a class, containing database related methods. The base cl
 <h2>Router</h2>
 The router entity contains everything related to routing the client, or the path. Down below is a list of methods in the Router class.
 
-* setIgnore
-* getRootPath
-* routeHandler
-* showView
-* to
-* getRoute
-* setRoute
-* getOriginalRoute
+* setIgnore (set a path that's getting ignored. Usefull for sub-folder environments)
+* getRootPath (Returns the root path of the website environment, common: "/")
+* routeHandler (Handles routing to a view based on given data in <code>urls.php</code>)
+* showView (Internally used method to show a view)
+* to (Go to a url/ path)
+* getRoute (Get current request uri)
+* setRoute (Change request uri)
+* getOriginalRoute (Get the first <code>Router::getRoute();</code>)
 
 <h2>Security</h2>

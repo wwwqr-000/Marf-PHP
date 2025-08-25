@@ -7,7 +7,7 @@ Marf-PHP uses the <code>urls.php</code> file to route a incoming request from a 
 
 The match case has two parts. The first part is the bool-checker. After that, <code> => </code> is used to point to the return value, the second part. You can use every logic to check, even custom functions can be used, or for example the <code>str_contains()</code> function, to check if the <code>$route</code> contains a certain string.
 
-<h2>Route return syntax</h2>
+<h2>Route syntax</h2>
 
 <code>$route == "/" => ["allowed" => []]</code> In this case "allowed" is pointing to the array that contains the content that is used when allowed by the middleware.
 <code>$route == "/" => ["allowed" => [], "denyView" => "aCustomView"]</code> The "denyView" points to a view that will be displayed for the client if the middleware returns a negative response.

@@ -2,7 +2,7 @@
 class Middleware {
     protected static $name;
 
-    public static function getName() {
+    public static function getName() {//Don't copy method to middleware class when "extends" is used.
         return static::$name;
     }
 
